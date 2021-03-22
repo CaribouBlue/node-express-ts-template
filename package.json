@@ -9,9 +9,6 @@
     "build": "rm -rf ./dist && tsc -p .",
     "build:dev": "tsc -w"
   },
-  "_moduleAliases": {
-    "~": "dist"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CaribouBlue/node-ts-template.git"

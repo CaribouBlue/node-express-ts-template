@@ -1,6 +1,10 @@
 process.env["NODE_CONFIG_DIR"] = __dirname + "/config/";
 
-import 'module-alias/register'
+import moduleAlias from 'module-alias'
+moduleAlias.addAliases({
+  '~'  : __dirname,
+})
+
 import { app } from './server'
 import config from 'config'
 
