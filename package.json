@@ -1,0 +1,19 @@
+{
+  "name": "node-ts-template",
+  "version": "1.0.0-alpha",
+  "description": "A template for Node.js + TypeScript projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaribouBlue/node-ts-template.git"
+  },
+  "author": "Alec Draymore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CaribouBlue/node-ts-template/issues"
+  },
+  "homepage": "https://github.com/CaribouBlue/node-ts-template#readme"
+}
