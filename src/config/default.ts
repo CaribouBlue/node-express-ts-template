@@ -6,4 +6,4 @@ const defaultConfig: DefaultConfig = {
   }
 }
 
-export default defaultConfig
+export = defaultConfig
