@@ -8,8 +8,8 @@ moduleAlias.addAliases({
 import { app } from './server'
 import config from 'config'
 
-const PORT: number = config.get('server.port')
+const port: number = config.get('server.port')
 
-app.listen(PORT, () => {
-  console.log(`:: Listening to port ${PORT}`)
+app.listen(port, () => {
+  console.log(`:: Listening to port ${port} ::`)
 })
