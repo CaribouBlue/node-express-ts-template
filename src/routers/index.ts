@@ -1,18 +1,14 @@
 import { Express, Router } from 'express'
-import { readdirSync } from 'fs'
+import glob from 'glob'
 
-const getSubDirectories = (path: string) =>
-  readdirSync(path, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
+export const registerRouters = async (app: Express | Router, routerPathPrefix: string = '/') => {
+  const routerFilePaths = glob.sync(__dirname + '/**/index.*')
+    .map(fp => (fp.match(/(?<=.*routers\/)(.*)(?=\/index)/) || [] )[0])
 
-export const createRouterRegister = (path: string) => {
-  const register = async (app: Express | Router, routerPrefix: string = '/') => {
-    const subDirectories = getSubDirectories(path)
-    for (let dirname of subDirectories) {
-      const { router } = await import(`${path}/${dirname}`)
-      app.use(`${routerPrefix}${dirname}`, router)
+  for (let fp of routerFilePaths) {
+    if (fp) {
+      const { router } = await import(`./${fp}`)
+      if (router) app.use(`${routerPathPrefix}${fp}`, router)
     }
   }
-  return register
 }
