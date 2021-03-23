@@ -1,7 +1,17 @@
 import { Router } from 'express'
-import { ApplicationError, HttpError, InternalServerError} from '@errors'
+import { checkSchema, Schema } from 'express-validator'
+import { Middleware, validationErrorHandler } from '~/utils/middleware'
+
+const reqSchema: Schema = {}
+
+const reqHandler: Middleware = (req, res, next) => {
+  res.send('success')
+}
 
 export const router = Router()
-router.get('/', (req, res, next) => {
-  throw new InternalServerError('Test', {'aDetail': 5})
-})
+router.get(
+  '/',
+  checkSchema(reqSchema),
+  validationErrorHandler,
+  reqHandler,
+)

@@ -4,7 +4,7 @@ import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import path from 'path'
 import { registerRouters } from './routers'
-import { errorHandler } from './utils/error-handeling'
+import { defaultErrorHandler } from './utils/middleware/error-handler'
 
 export const init = async () => {
   const app = express()
@@ -24,7 +24,7 @@ export const init = async () => {
   await registerRouters(app, '*/')
 
   // default error handeling
-  app.use(errorHandler)
+  app.use(defaultErrorHandler)
 
   return app
 }
