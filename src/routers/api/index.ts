@@ -1,17 +1,20 @@
 import { Router } from 'express'
-import { checkSchema, Schema } from 'express-validator'
-import { Middleware, validationErrorHandler } from '~/utils/middleware'
+import { Middleware, requestValidator, Schema } from '~/utils/middleware'
 
-const reqSchema: Schema = {}
+const reqSchema: Schema = {
+  args1: {
+    in: ['query'],
+    isInt: true,
+  }
+}
 
-const reqHandler: Middleware = (req, res, next) => {
+const requestHandler: Middleware = (req, res, next) => {
   res.send('success')
 }
 
 export const router = Router()
 router.get(
   '/',
-  checkSchema(reqSchema),
-  validationErrorHandler,
-  reqHandler,
+  requestValidator(reqSchema),
+  requestHandler,
 )
