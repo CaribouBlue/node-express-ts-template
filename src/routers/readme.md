@@ -1,12 +1,11 @@
+# /routers
+
+## Example
+``` typescript
 import { Router } from 'express'
 import { Middleware, requestValidator, Schema } from '~/utils/middleware'
 
-const reqSchema: Schema = {
-  args1: {
-    in: ['query'],
-    isInt: true,
-  }
-}
+const requestSchema: Schema = {}
 
 const requestHandler: Middleware = (req, res, next) => {
   res.send('success')
@@ -15,6 +14,7 @@ const requestHandler: Middleware = (req, res, next) => {
 export const router = Router()
 router.get(
   '/',
-  requestValidator(reqSchema),
+  requestValidator(requestSchema),
   requestHandler,
 )
+```
