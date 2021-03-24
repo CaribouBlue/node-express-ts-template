@@ -17,8 +17,8 @@ export const init = async () => {
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
 
-  // static file service
-  app.use(express.static(path.resolve(__dirname, '../static')))
+  // public static file service
+  app.use(express.static(path.resolve(__dirname, './static/public')))
 
   // register routers
   await registerRouters(app, '*/')

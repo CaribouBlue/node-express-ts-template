@@ -1,5 +1,6 @@
 # Etc.
 *.ignore.*
+__*
 
 # Logs
 logs
