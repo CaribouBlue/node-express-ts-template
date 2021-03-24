@@ -1,13 +1,13 @@
 export interface Config {
   server: {
-    port?: number,
+    port?: number | string,
     morganFormat?: string,
   }
 }
 
 export interface DefaultConfig {
   server: {
-    port: number,
+    port: number | string,
     morganFormat: string,
   }
 }

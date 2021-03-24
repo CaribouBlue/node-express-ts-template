@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node ./dist/index.js",
     "start:dev": "nodemon --watch src --exec node --inspect -r ts-node/register ./src/index.ts",
-    "build": "rm -rf ./dist && tsc -p .",
-    "build:dev": "tsc -w"
+    "build": "npm run build:rm && tsc -p .",
+    "build:dev": "npm run build:rm && tsc -w",
+    "build:rm": "rm -rf ./dist"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/CaribouBlue/node-ts-template#readme",
   "dependencies": {
     "config": "^3.3.6",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
     "glob": "^7.1.6",
